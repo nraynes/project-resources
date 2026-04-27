@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Custom script to initialize a git repository with a versioned git hooks directory.
+
+# Determine name of versioned git hooks folder
+hooks_dir=".hooks"
+if [ "$1" != "" ]; then
+    hooks_dir=$1
+fi
+
+# If git hooks folder does not exist, create one
+if [ ! -d $hooks_dir ]; then
+    mkdir $hooks_dir
+fi
+
+# Initialize git if it has not already been done
+if [ ! -d ".git" ]; then
+    git init
+fi
+
+# Set the git hooks path to the versioned directory created earlier
+echo "Setting git hooks to versioned directory at $hooks_dir"
+git config core.hooksPath $hooks_dir
+
+echo "Done!"
