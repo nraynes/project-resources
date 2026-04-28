@@ -1,0 +1,10 @@
+mkdir .github
+mkdir .github/workflows
+bash $PROJECT_RESOURCES/global/vhooks
+cp $PROJECT_RESOURCES/global/github/workflows/release.yml .github/workflows/release.yml
+cp $PROJECT_RESOURCES/rust/github/workflows/test.yml .github/workflows/test.yml
+cp $PROJECT_RESOURCES/rust/hooks/pre-commit .hooks/pre-commit
+cp $COMMITALYZER/bin/commit-msg .hooks/commit-msg
+cp -R $COMMITALYZER/commit-rules/ commit-rules/
+cp -R $SEMVER/.release/ .release/
+cp $SEMVER/sample.config.semver.json config.semver.json
