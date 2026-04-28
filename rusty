@@ -8,3 +8,4 @@ cp $COMMITALYZER/bin/commit-msg .hooks/commit-msg
 cp -R $COMMITALYZER/commit-rules/ commit-rules/
 cp -R $SEMVER/.release/ .release/
 cp $SEMVER/sample.config.semver.json config.semver.json
+touch README.md
