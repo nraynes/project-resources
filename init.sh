@@ -27,6 +27,10 @@ cp -R $COMMITALYZER/commit-rules/ commit-rules/
 cp -R $SEMVER/.release/ .release/
 cp $SEMVER/sample.config.semver.json config.semver.json
 
+if [ "$language" == "rust" ]; then
+    cp -R $PROJECT_RESOURCES/rust/.cargo .cargo
+fi
+
 if [ "$copyright" == "permissive" ]; then
     cp -R $PROJECT_RESOURCES/global/Licensing/Permissive/LICENSES LICENSES
     cp $PROJECT_RESOURCES/global/Licensing/Permissive/LICENSE LICENSE
