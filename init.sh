@@ -30,7 +30,8 @@ fi
 
 cp $COMMITALYZER/bin/commit-msg .hooks/commit-msg
 cp -R $COMMITALYZER/commit-rules/ commit-rules/
-cp -R $SEMVER/.release/ .release/
+mkdir -p .release
+cp -R $SEMVER/bin/arm-macos/semver-release .release/semver-release
 cp $SEMVER/sample.config.semver.json config.semver.json
 
 if [ "$copyright" == "permissive" ]; then
