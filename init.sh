@@ -16,20 +16,22 @@ if [ "$copyright" == "" ]; then
     copyright="permissive"
 fi
 
-mkdir .github
-mkdir .github/workflows
+mkdir -p .github/workflows
 bash $PROJECT_RESOURCES/global/vhooks
-cp $PROJECT_RESOURCES/global/github/workflows/release.yml .github/workflows/release.yml
-cp $PROJECT_RESOURCES/rust/github/workflows/test.yml .github/workflows/test.yml
-cp $PROJECT_RESOURCES/rust/hooks/pre-commit .hooks/pre-commit
+
+if [ "$language" == "rust" ]; then
+    cp -R $PROJECT_RESOURCES/rust/.cargo .cargo
+    cp $PROJECT_RESOURCES/rust/github/workflows/release.yml .github/workflows/release.yml
+    cp $PROJECT_RESOURCES/rust/github/workflows/test.yml .github/workflows/test.yml
+    cp $PROJECT_RESOURCES/rust/hooks/pre-commit .hooks/pre-commit
+else
+    cp $PROJECT_RESOURCES/global/github/workflows/release.yml .github/workflows/release.yml
+fi
+
 cp $COMMITALYZER/bin/commit-msg .hooks/commit-msg
 cp -R $COMMITALYZER/commit-rules/ commit-rules/
 cp -R $SEMVER/.release/ .release/
 cp $SEMVER/sample.config.semver.json config.semver.json
-
-if [ "$language" == "rust" ]; then
-    cp -R $PROJECT_RESOURCES/rust/.cargo .cargo
-fi
 
 if [ "$copyright" == "permissive" ]; then
     cp -R $PROJECT_RESOURCES/global/Licensing/Permissive/LICENSES LICENSES
