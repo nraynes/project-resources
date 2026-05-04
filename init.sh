@@ -20,7 +20,7 @@ mkdir -p .github/workflows
 bash $PROJECT_RESOURCES/global/vhooks
 
 if [ "$language" == "rust" ]; then
-    cp -R $PROJECT_RESOURCES/rust/.cargo .cargo
+    # cp -R $PROJECT_RESOURCES/rust/.cargo .cargo
     cp $PROJECT_RESOURCES/rust/github/workflows/release.yml .github/workflows/release.yml
     cp $PROJECT_RESOURCES/rust/github/workflows/test.yml .github/workflows/test.yml
     cp $PROJECT_RESOURCES/rust/hooks/pre-commit .hooks/pre-commit
