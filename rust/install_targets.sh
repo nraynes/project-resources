@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Installs linkers and targets for Rust for all the major operating systems.
 
 # Install linker for linux.

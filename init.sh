@@ -1,3 +1,5 @@
+#!/bin/bash
+
 while getopts l:c: flag
 do
     case "${flag}" in
