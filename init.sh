@@ -32,7 +32,7 @@ cp $COMMITALYZER/bin/arm-macos/commit-msg .hooks/commit-msg
 cp -R $COMMITALYZER/commit-rules/ commit-rules/
 mkdir -p .release
 cp -R $SEMVER/bin/arm-macos/semver-release .release/semver-release
-cp $SEMVER/sample.config.semver.json config.semver.json
+cp $SEMVER/config.semver.json config.semver.json
 
 if [ "$copyright" == "permissive" ]; then
     cp -R $PROJECT_RESOURCES/global/Licensing/Permissive/LICENSES LICENSES
