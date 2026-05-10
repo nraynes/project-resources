@@ -28,7 +28,7 @@ else
     cp $PROJECT_RESOURCES/global/github/workflows/release.yml .github/workflows/release.yml
 fi
 
-cp $COMMITALYZER/bin/commit-msg .hooks/commit-msg
+cp $COMMITALYZER/bin/arm-macos/commit-msg .hooks/commit-msg
 cp -R $COMMITALYZER/commit-rules/ commit-rules/
 mkdir -p .release
 cp -R $SEMVER/bin/arm-macos/semver-release .release/semver-release
